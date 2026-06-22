@@ -8,20 +8,13 @@ export default function ProductCard({ product }) {
   return (
     <div className="card group flex flex-col overflow-hidden">
       {/* Image */}
-      <Link to={`/products/${product.id}`} className="block overflow-hidden aspect-square bg-apex-light">
+      <Link to={`/products/${product.id}`} className="relative block overflow-hidden aspect-square bg-apex-light">
         <img
           src={product.image}
           alt={product.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
         />
-        {!product.inStock && (
-          <div className="absolute inset-0 bg-white/60 flex items-center justify-center">
-            <span className="bg-apex-dark text-white font-accent text-xs tracking-widest px-4 py-1">
-              OUT OF STOCK
-            </span>
-          </div>
-        )}
       </Link>
 
       {/* Body */}
@@ -54,9 +47,8 @@ export default function ProductCard({ product }) {
             ${product.price.toFixed(2)}
           </span>
           <button
-            disabled={!product.inStock}
             onClick={() => addToCart(product, product.defaultSize)}
-            className="btn-gold text-xs py-2 px-4 flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="btn-gold text-xs py-2 px-4 flex items-center gap-2"
           >
             <ShoppingCart size={14} />
             Add to Cart

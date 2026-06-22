@@ -62,14 +62,7 @@ export default function ProductDetail() {
               alt={product.name}
               className="w-full aspect-square object-cover"
             />
-            {!product.inStock && (
-              <div className="absolute inset-0 bg-white/60 flex items-center justify-center">
-                <span className="bg-apex-dark text-white font-accent text-sm tracking-widest px-6 py-2">
-                  OUT OF STOCK
-                </span>
-              </div>
-            )}
-            {product.popular && product.inStock && (
+            {product.popular && (
               <div className="absolute top-4 left-4 bg-gold text-white font-accent text-xs tracking-widest px-3 py-1">
                 BEST SELLER
               </div>
@@ -184,14 +177,13 @@ export default function ProductDetail() {
             </div>
 
             <button
-              disabled={!product.inStock}
               onClick={handleAddToCart}
               className={`btn-gold w-full flex items-center justify-center gap-2 py-4 text-sm mb-3 ${
                 added ? 'bg-green-600 hover:bg-green-600' : ''
               }`}
             >
               <ShoppingCart size={16} />
-              {added ? '✓ Added to Cart' : product.inStock ? 'Add to Cart' : 'Out of Stock'}
+              {added ? '✓ Added to Cart' : 'Add to Cart'}
             </button>
             <Link to="/cart" className="btn-outline-gold w-full text-center block py-3 text-sm">
               View Cart

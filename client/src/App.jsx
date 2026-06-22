@@ -1,4 +1,5 @@
-import { HashRouter as Router, Routes, Route, ScrollRestoration } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import { CartProvider }  from './context/CartContext'
 import { AdminProvider } from './context/AdminContext'
 
@@ -21,6 +22,8 @@ import Admin            from './pages/Admin'
 import Disclaimer       from './pages/Disclaimer'
 
 function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
   return null
 }
 
@@ -40,6 +43,7 @@ export default function App() {
     <AdminProvider>
       <CartProvider>
         <Router>
+          <ScrollToTop />
           <LegalBanner />
           <Routes>
             {/* Admin — no standard layout */}
