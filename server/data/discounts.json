@@ -1,0 +1,5 @@
+[
+  { "code": "APEX10", "percent": 10, "uses": 0, "active": true },
+  { "code": "APEX15", "percent": 15, "uses": 0, "active": true },
+  { "code": "RESEARCH5", "percent": 5, "uses": 0, "active": true }
+]

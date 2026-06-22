@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-body text-apex-dark bg-white antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-accent font-bold;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply bg-gold text-white font-accent font-semibold px-8 py-3 tracking-widest text-sm uppercase transition-all duration-200 hover:bg-gold-600 active:scale-95;
+  }
+  .btn-outline-gold {
+    @apply border border-gold text-gold font-accent font-semibold px-8 py-3 tracking-widest text-sm uppercase transition-all duration-200 hover:bg-gold hover:text-white active:scale-95;
+  }
+  .btn-dark {
+    @apply bg-apex-dark text-white font-accent font-semibold px-8 py-3 tracking-widest text-sm uppercase transition-all duration-200 hover:bg-apex-black active:scale-95;
+  }
+  .section-title {
+    @apply font-display text-4xl md:text-5xl text-apex-dark tracking-widest uppercase;
+  }
+  .gold-divider {
+    @apply w-16 h-0.5 bg-gold my-4;
+  }
+  .card {
+    @apply bg-white border border-apex-border shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+  .input-field {
+    @apply w-full border border-apex-border px-4 py-3 text-apex-dark placeholder-apex-muted focus:outline-none focus:border-gold transition-colors duration-200 font-body text-sm;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent;
+  }
+  .overlay-dark {
+    background: linear-gradient(135deg, rgba(13,13,13,0.75) 0%, rgba(13,13,13,0.45) 100%);
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { @apply bg-apex-light; }
+::-webkit-scrollbar-thumb { @apply bg-gold; }
